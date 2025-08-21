@@ -1,13 +1,22 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import SectionHeader from "./section-header"
-import { ClipboardCheck, Settings, Users, BarChart, Lightbulb, Zap } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useTranslations } from "next-intl"
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import {
+  BarChart,
+  ClipboardCheck,
+  Lightbulb,
+  Settings,
+  Users,
+  Zap,
+} from "lucide-react";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
+import SectionHeader from "./section-header";
+import Image from "next/image";
 
 export default function ServicesSection() {
-    const t = useTranslations("services");
+  const t = useTranslations("services");
 
   const services = [
     {
@@ -40,7 +49,7 @@ export default function ServicesSection() {
       title: t("maintenanceRepairs"),
       description: t("maintenanceRepairsDesc"),
     },
-  ]
+  ];
 
   return (
     <section id="services" className="py-20 bg-white">
@@ -65,7 +74,9 @@ export default function ServicesSection() {
               <div className="w-12 h-12 rounded-lg bg-sky-100 flex items-center justify-center mb-4">
                 <service.icon className="h-6 w-6 text-sky-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">{service.title}</h3>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                {service.title}
+              </h3>
               <p className="text-gray-600">{service.description}</p>
             </motion.div>
           ))}
@@ -80,53 +91,52 @@ export default function ServicesSection() {
         >
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="p-8 md:p-12">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{t("customizedServicePackages")}</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                {t("customizedServicePackages")}
+              </h3>
               <p className="text-white/90 mb-6">
                 {t("customizedServicePackagesDesc")}
               </p>
               <ul className="space-y-3 mb-8">
-                {[
-                  t("li1"),
-                  t("li2"),
-                  t("li3"),
-                  t("li4"),
-                  t("li5"),
-                ].map((item, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
-                    className="flex items-start"
-                  >
-                    <div className="mr-2 mt-1 h-5 w-5 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
-                      <div className="h-2 w-2 rounded-full bg-white"></div>
-                    </div>
-                    <span className="text-white/90">{item}</span>
-                  </motion.li>
-                ))}
+                {[t("li1"), t("li2"), t("li3"), t("li4"), t("li5")].map(
+                  (item, index) => (
+                    <motion.li
+                      key={index}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
+                      className="flex items-start"
+                    >
+                      <div className="mr-2 mt-1 h-5 w-5 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                        <div className="h-2 w-2 rounded-full bg-white"></div>
+                      </div>
+                      <span className="text-white/90">{item}</span>
+                    </motion.li>
+                  )
+                )}
               </ul>
-              <Button
-                size="lg"
-                className="bg-white text-sky-600 hover:bg-white/90"
-                onClick={() => {
-                  document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })
-                }}
-              >
-                {t("requestCustomPackage")}
-              </Button>
+              <Link href={"#contact"}>
+                <Button
+                  size="lg"
+                  className="bg-white text-sky-600 hover:bg-white/90"
+                >
+                  {t("requestCustomPackage")}
+                </Button>
+              </Link>
             </div>
-            <div className="hidden lg:block relative">
-              <img
-                src="/placeholder.svg?height=500&width=600&text=Hospitality+Services"
+            <div className="hidden lg:block relative p-8">
+              <Image
+                src="/services.webp"
                 alt="Hospitality Services"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover rounded-xl shadow-lg"
+                width={1280}
+                height={768}
               />
             </div>
           </div>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

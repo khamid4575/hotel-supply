@@ -5,6 +5,7 @@ import { Bed, Building, Palette, Ruler, Sofa, Utensils } from "lucide-react";
 import { useTranslations } from "next-intl";
 import FeatureCard from "./feature-card";
 import SectionHeader from "./section-header";
+import Image from "next/image";
 
 export default function NewConstructionSection() {
   const t = useTranslations("newConstruction");
@@ -102,10 +103,12 @@ export default function NewConstructionSection() {
               </ul>
             </div>
             <div className="relative h-64 md:h-80 rounded-xl overflow-hidden">
-              <img
-                src="/placeholder.svg?height=400&width=600&text=Hotel+Construction"
+              <Image
+                src="/newConstruction.webp"
                 alt="Hotel Construction"
                 className="object-cover w-full h-full rounded-xl"
+                layout="fill"
+                objectFit="cover"
               />
             </div>
           </div>

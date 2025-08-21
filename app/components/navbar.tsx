@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Language from "./language";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -84,12 +85,13 @@ export default function Navbar() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, delay: navItems.length * 0.1 }}
             >
-              <Button
+              <Language />
+              {/* <Button
                 onClick={() => scrollToSection("#contact")}
                 className="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white"
               >
                 Get a Quote
-              </Button>
+              </Button> */}
             </motion.div>
           </nav>
 

@@ -133,9 +133,7 @@ export default function ContactSection() {
                     onValueChange={handleSelectChange}
                   >
                     <SelectTrigger id="interest">
-                      <SelectValue
-                        placeholder={t("contact.themeSelector")}
-                      />
+                      <SelectValue placeholder={t("contact.themeSelector")} />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="new-construction">
@@ -253,11 +251,12 @@ export default function ContactSection() {
 
               <div className="mt-8">
                 <div className="rounded-xl overflow-hidden h-64 bg-gray-100">
-                  <img
+<iframe src="https://yandex.com/map-widget/v1/?um=constructor%3A2bc0daba15b2e1a8779ed94ca19598e0a01a908246ec6fd24f2f1e4b468e72ff&amp;source=constructor" width="600" height="300" frameBorder="0"></iframe>
+                  {/* <img
                     src="/placeholder.svg?height=300&width=600&text=Map+Location"
                     alt="Office Location Map"
                     className="w-full h-full object-cover"
-                  />
+                  /> */}
                 </div>
               </div>
             </div>

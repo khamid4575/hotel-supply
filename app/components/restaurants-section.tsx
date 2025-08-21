@@ -1,14 +1,22 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import SectionHeader from "./section-header"
-import { Utensils, GlassWater, Coffee, ChefHat, Hammer, Wrench } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { useTranslations } from "next-intl"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import {
+  ChefHat,
+  Coffee,
+  GlassWater,
+  Hammer,
+  Utensils,
+  Wrench,
+} from "lucide-react";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
+import SectionHeader from "./section-header";
 
 export default function RestaurantsSection() {
-    const t = useTranslations("restaurantsBars");
+  const t = useTranslations("restaurantsBars");
 
   const constructionItems = [
     {
@@ -26,7 +34,7 @@ export default function RestaurantsSection() {
       title: t("barSetupEquipment"),
       description: t("barSetupEquipmentDesc"),
     },
-  ]
+  ];
 
   const operatingItems = [
     {
@@ -44,10 +52,13 @@ export default function RestaurantsSection() {
       title: t("beverageEquipment"),
       description: t("beverageEquipmentDesc"),
     },
-  ]
+  ];
 
   return (
-    <section id="restaurants" className="py-20 bg-gradient-to-b from-sky-50 to-white">
+    <section
+      id="restaurants"
+      className="py-20 bg-gradient-to-b from-sky-50 to-white"
+    >
       <div className="container mx-auto px-4">
         <SectionHeader
           subtitle={t("title")}
@@ -66,10 +77,10 @@ export default function RestaurantsSection() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-sky-100 mb-6">
                 <Hammer className="h-8 w-8 text-sky-600" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">{t("underConstruction")}</h3>
-              <p className="text-gray-600 mb-8">
-                {t("underConstructionDesc")}
-              </p>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                {t("underConstruction")}
+              </h3>
+              <p className="text-gray-600 mb-8">{t("underConstructionDesc")}</p>
 
               <div className="space-y-6">
                 {constructionItems.map((item, index) => (
@@ -85,7 +96,9 @@ export default function RestaurantsSection() {
                       <item.icon className="h-5 w-5 text-sky-600" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-gray-800 mb-1">{item.title}</h4>
+                      <h4 className="text-lg font-semibold text-gray-800 mb-1">
+                        {item.title}
+                      </h4>
                       <p className="text-gray-600">{item.description}</p>
                     </div>
                   </motion.div>
@@ -93,15 +106,14 @@ export default function RestaurantsSection() {
               </div>
 
               <div className="mt-8">
-                <Button
-                  variant="outline"
-                  className="border-sky-500 text-sky-600 hover:bg-sky-50"
-                  onClick={() => {
-                    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })
-                  }}
-                >
-                  {t("requestDesignConsultation")}
-                </Button>
+                <Link href={"#contact"}>
+                  <Button
+                    variant="outline"
+                    className="border-sky-500 text-sky-600 hover:bg-sky-50"
+                  >
+                    {t("requestDesignConsultation")}
+                  </Button>
+                </Link>
               </div>
             </div>
           </motion.div>
@@ -116,7 +128,9 @@ export default function RestaurantsSection() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-blue-100 mb-6">
                 <Utensils className="h-8 w-8 text-blue-600" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">{t("operatingEstablishments")}</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                {t("operatingEstablishments")}
+              </h3>
               <p className="text-gray-600 mb-8">
                 {t("operatingEstablishmentsDesc")}
               </p>
@@ -135,7 +149,9 @@ export default function RestaurantsSection() {
                       <item.icon className="h-5 w-5 text-blue-600" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-gray-800 mb-1">{item.title}</h4>
+                      <h4 className="text-lg font-semibold text-gray-800 mb-1">
+                        {item.title}
+                      </h4>
                       <p className="text-gray-600">{item.description}</p>
                     </div>
                   </motion.div>
@@ -143,15 +159,14 @@ export default function RestaurantsSection() {
               </div>
 
               <div className="mt-8">
-                <Button
-                  variant="outline"
-                  className="border-blue-500 text-blue-600 hover:bg-blue-50"
-                  onClick={() => {
-                    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })
-                  }}
-                >
-                  {t("viewSupplyCatalog")}
-                </Button>
+                <Link href={"#contact"}>
+                  <Button
+                    variant="outline"
+                    className="border-blue-500 text-blue-600 hover:bg-blue-50"
+                  >
+                    {t("viewSupplyCatalog")}
+                  </Button>
+                </Link>
               </div>
             </div>
           </motion.div>
@@ -187,7 +202,9 @@ export default function RestaurantsSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
                   >
-                    <h4 className="text-lg font-semibold text-gray-800 mb-2">{item.title}</h4>
+                    <h4 className="text-lg font-semibold text-gray-800 mb-2">
+                      {item.title}
+                    </h4>
                     <p className="text-gray-600">{item.description}</p>
                   </motion.div>
                 </CardContent>
@@ -197,5 +214,5 @@ export default function RestaurantsSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

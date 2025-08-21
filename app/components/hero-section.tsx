@@ -3,11 +3,13 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function HeroSection() {
   const t = useTranslations("hero");
+  const language = useLocale();
 
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
@@ -39,10 +41,23 @@ export default function HeroSection() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-800"
             >
-              {t("elevating")}{" "}
-              <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
-                {t("hospitalityExperience")}
-              </span>
+              {language === "uz" ? (
+                <>
+                  <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
+                    {t("hospitalityExperience")}
+                  </span>
+                  <br />
+                  {t("elevating")}{" "}
+                </>
+              ) : (
+                <>
+                  {" "}
+                  {t("elevating")}{" "}
+                  <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
+                    {t("hospitalityExperience")}
+                  </span>
+                </>
+              )}
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -58,30 +73,24 @@ export default function HeroSection() {
               transition={{ delay: 0.6, duration: 0.6 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Button
-                onClick={() => {
-                  document
-                    .querySelector("#contact")
-                    ?.scrollIntoView({ behavior: "smooth" });
-                }}
-                size="lg"
-                className="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white"
-              >
-                {t("getStarted")}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button
-                onClick={() => {
-                  document
-                    .querySelector("#services")
-                    ?.scrollIntoView({ behavior: "smooth" });
-                }}
-                variant="outline"
-                size="lg"
-                className="border-sky-500 text-sky-600 hover:bg-sky-50"
-              >
-                {t("exploreServices")}
-              </Button>
+              <Link href={"#contact"}>
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white"
+                >
+                  {t("getStarted")}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href={"#services"}>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-sky-500 text-sky-600 hover:bg-sky-50"
+                >
+                  {t("exploreServices")}
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
 
