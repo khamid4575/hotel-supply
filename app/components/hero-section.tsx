@@ -76,7 +76,7 @@ export default function HeroSection() {
               <Link href={"#contact"}>
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white md:w-full w-48"
+                  className="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white md:w-full w-52"
                 >
                   {t("getStarted")}
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -86,7 +86,7 @@ export default function HeroSection() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-sky-500 text-sky-600 hover:bg-sky-50"
+                  className="border-sky-500 text-sky-600 hover:bg-sky-50 md:w-full w-52"
                 >
                   {t("exploreServices")}
                 </Button>
