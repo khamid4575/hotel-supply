@@ -215,9 +215,10 @@ export default function ContactSection() {
                       {t("contact.phone")}
                     </h4>
                     <p className="text-gray-600">
-                      +998 (90) 176 62 50
+                      +998 (77) 275 88 08
+                      {/* +998 (90) 176 62 50
                       <br />
-                      +998 (95) 177 62 50
+                      +998 (95) 177 62 50 */}
                     </p>
                   </div>
                 </div>

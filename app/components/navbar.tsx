@@ -64,7 +64,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden lg:flex items-center space-x-6">
             {navItems.map((item, index) => (
               <motion.div
                 key={item.name}
@@ -96,7 +96,7 @@ export default function Navbar() {
           </nav>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Button
               variant="ghost"
               size="icon"
@@ -116,7 +116,7 @@ export default function Navbar() {
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed top-16 left-0 right-0 z-40 bg-white shadow-lg md:hidden"
+          className="fixed top-16 left-0 right-0 z-40 bg-white shadow-lg lg:hidden"
         >
           <div className="container mx-auto px-4 py-4">
             <nav className="flex flex-col space-y-4">
@@ -129,12 +129,15 @@ export default function Navbar() {
                   {item.name}
                 </button>
               ))}
-              <Button
+              <div className="w-full flex justify-center">
+                <Language />
+              </div>
+              {/* <Button
                 onClick={() => scrollToSection("#contact")}
                 className="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white w-full"
               >
                 Get a Quote
-              </Button>
+              </Button> */}
             </nav>
           </div>
         </motion.div>
